@@ -1,8 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-let rounds = 0;
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+let rounds = 1;
 
 function getComputerChoice()
 {
@@ -30,7 +28,7 @@ function getHumanChoice()
 
 function playRound(humanChoice, computerChoice)
 {
-    if(humanChoice === computerChoice)
+    if(humanChoice == computerChoice)
     {
         console.log("its a draw");
     }
@@ -53,12 +51,48 @@ function playRound(humanChoice, computerChoice)
         computerScore++;
         console.log("COMPUTER WINS")
     }
-    rounds++;
+
 }
 
-playRound(humanChoice, computerChoice)
+function playGame()
+{
+    for(let i = 6; rounds < i; rounds++)
+    {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+        console.log("The human chose " + humanChoice + " " + " The computer chose " + computerChoice)
+        console.log(humanScore, computerScore);
+        console.log(rounds)
+    }
+}
 
 
-console.log(getComputerChoice())
-console.log(humanScore, computerScore);
-console.log(rounds)
+playGame();
+
+if(rounds === 6)
+{
+    if(humanScore === computerScore)
+    {
+        console.log("ITS A MATCH DRAW")
+    }
+    else if(humanScore > computerScore)
+    {
+        console.log("Human wins")
+    }
+    else{
+        console.log("computer wins")
+    }
+}
+
+console.log("Would you like to play again?")
+let answer = prompt().toLowerCase();
+if(answer == "yes")
+{
+    playGame();
+}
+else
+{
+    console.log("GOODBYE");
+}
+
