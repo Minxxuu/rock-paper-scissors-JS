@@ -86,9 +86,10 @@ function roundCheck()
             result.textContent = "computer wins"
         }
         restart.removeAttribute("disabled" , "")
-        restart.addEventListener("click", () => rockBtn.removeAttribute("disabled" , "")
+        restart.addEventListener("click", () => {rounds = 0, humanScore = 0, computerScore = 0, 
+                                            rockBtn.removeAttribute("disabled" , "")
                                             ,paperBtn.removeAttribute("disabled" , "")
-                                            ,scissorsBtn.removeAttribute("disabled" , ""))
+                                            ,scissorsBtn.removeAttribute("disabled" , "") , roundsDiv.textContent = rounds , score1.textContent = humanScore, score2.textContent = computerScore;}) 
     }
 }
 
@@ -97,31 +98,3 @@ restart.setAttribute("disabled" , "")
 restart.textContent = "PLAY AGAIN?"
 document.body.appendChild(restart)
         
-// function playGame()
-// {
-//     for(let i = 6; rounds < i; rounds++)
-//     {
-//         let humanChoice = getHumanChoice();
-//         let computerChoice = getComputerChoice();
-//         playRound(humanChoice, computerChoice);
-//         console.log("The human chose " + humanChoice + " " + " The computer chose " + computerChoice)
-//         console.log(humanScore, computerScore);
-//         console.log(rounds)
-//     }
-// }
-
-
-//playGame();
-
-
-// console.log("Would you like to play again?")
-// let answer = prompt().toLowerCase();
-// if(answer == "yes")
-// {
-//     playGame();
-// }
-// else
-// {
-//     console.log("GOODBYE");
-// }
-
